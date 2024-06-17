@@ -1,0 +1,82 @@
+{% extends 'myApp/index.html' %}
+{% load static %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %} {{ accommodation.Property_Name }} {% endblock %}</title>
+<link rel="stylesheet" href='{% static "accommodation_details.css" %}'>
+{% endblock %}
+
+{% block content %}
+<div class="accdetails">
+    <div class="accimg-section">
+        <div class="grid-container">
+            <div class="main-accimg"><img src="{% static 'room5.avif' %}" alt=""></div>
+            <div class="sub-main-accimg"><img src="{% static 'room1.avif' %}" alt=""></div>
+            <div class="sub-main-accimg"><img src="{% static 'room2.avif' %}" alt=""></div>
+            <div class="sub-main-accimg"><img src="{% static 'room3.avif' %}" alt=""></div>
+            <div class="sub-main-accimg"><img src="{% static 'room4.avif' %}" alt=""></div>
+        </div>
+        <div class="acc-details-header">
+            <div>
+                <div class="prop-name">{{ accommodation.Property_Name }}</div>
+                <div class="prop-loc"><img src="{% static 'location.png' %}" alt=""> {{ accommodation.Location }}</div>
+            </div>
+            <div>
+                <div class="prop-price">From &#8377;{{ accommodation.Price }}/week</div>
+                <div class="accommodation-footer">
+                    <form id="bookingForm" method="post" action="{% url 'book-accommodation' accommodation.aw %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                        <button class="book-a" type="submit">Book Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="accommodation-details">
+            <p><strong>Description:</strong> {{ accommodation.Description }}</p>
+            <p><strong>Total Rooms:</strong> {{ accommodation.Total_Rooms }}</p>
+            <p><strong>Balcony:</strong> {{ accommodation.Balcony }}</p>
+            <p><strong>City:</strong> {{ accommodation.city }}</p>
+            <p><strong>Property Type:</strong> {{ accommodation.property_type }}</p>
+            <p><strong>BHK:</strong> {{ accommodation.BHK }}</p>
+            <p><strong>Room Type:</strong> {{ accommodation.Room_Type }}</p>
+            <p><strong>Amenities:</strong> {{ accommodation.Amenities }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('bookingForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Perform the AJAX request
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', this.action, true);
+        xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    alert('Booking successful');
+                } else if (xhr.status === 302) {
+                    window.location.href = xhr.getResponseHeader('Location');
+                } else {
+                    alert('An error occurred during the booking process. Please try again.');
+                }
+            }
+        };
+
+        const formData = new FormData(this);
+        const encodedData = new URLSearchParams(formData).toString();
+        xhr.send(encodedData);
+    });
+</script>
+{% endblock %}

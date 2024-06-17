@@ -1,0 +1,77 @@
+
+.register-container{
+    height: 530px;
+    width: 300px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;    
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 40px;
+    margin-top: 10px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+}
+
+.register-container *{
+    font-family: 'Poppins',sans-serif;
+    color: #000000;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+.register-container h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+.reg-user-label, .reg-pass-label, .reg-email-label, .reg-cpass-label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.reg-user-input, .reg-email-input, .reg-pass-input, .reg-cpass-input{
+    display: block;
+    height: 40px;
+    width: 95%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 2px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.register-container::placeholder{
+    color: rgb(45, 20, 44);
+}
+
+.reg-btn{
+    margin-top: 14px;
+    width: 100%;
+    background-color: rgb(14, 159, 110);
+    color: #ffffff;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.reg-btn:hover{
+  background-color: rgb(38, 202, 147);
+}

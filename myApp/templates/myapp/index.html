@@ -1,0 +1,215 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Accommodation Finder - Home {%endblock%}</title>
+    <link rel="stylesheet" href='{% static "navbar.css" %}' />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    {% block head %} {% endblock %}
+    <style>
+      .header .banner-wrapper {
+        display: inline-block;
+        height: 17.5rem;
+        width: 100vw;
+        background-position: 0;
+        background-size: cover;
+        background-image: url('{% static "search-bar-background-image.png" %}');
+      }
+
+      .search-s-btn {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        padding-left: 40px;
+        padding-right: 40px;
+        font-size: 1rem;
+        position: absolute;
+        color: #4c4c4c;
+        right: 62%;
+        background-color: #fcce01;
+        border: none;
+        cursor: pointer;
+        align-items: center;
+        z-index: 999;
+        font-family: "JetBrains Mono", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="banner-box">
+        <div class="banner-wrapper">
+          <div class="left-section">
+            <a class="home" href="{% url 'homepage' %}"
+              ><img
+                src="{% static 'home.png' %}"
+                style="width: 16px; height: 16px; padding-right: 3px"
+                alt=""
+              />Home</a
+            >
+          </div>
+          <div class="right-section">
+            {% if user.is_authenticated %}
+
+            <span class="username">Welcome, {{ user.username }}</span>
+            <a class="my-bookings" href="{% url 'my-bookings' %}"
+              >My Bookings</a
+            >
+            <a class="login" href="{% url 'user-logout' %}">Logout</a>
+            {% else %}
+            <a class="signup" href="{% url 'register' %}">
+              <img
+                src="{% static 'user.png' %}"
+                alt=""
+                style="width: 19px; height: 19px; padding-right: 4px"
+              />
+              Signup</a
+            >
+            <a class="login" href="{% url 'my-login' %}"
+              ><img
+                src="{% static 'user-interface.png' %}"
+                style="width: 16px; height: 16px; padding-right: 4px"
+                alt=""
+              />
+              Login</a
+            >
+            {% endif %}
+          </div>
+          <div class="bottom-search-section">
+            <img
+              src="{% static 'magnifying-glass.png' %}"
+              style="
+                width: 19px;
+                height: 19px;
+                padding-right: 1px;
+                position: absolute;
+                left: 10%;
+              "
+              alt=""
+            />
+            <form
+              method="post"
+              action="{% url 'accommodations' %}"
+              class="search-form"
+            >
+              {% csrf_token %}
+              <input
+                type="text"
+                name="location"
+                placeholder="Search city or Area"
+                class="input-c"
+                id="location"
+                required
+              />
+              <button type="submit" class="search-s-btn" id="search-s-btn">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% block content %} 
+    
+    {% endblock %} 
+    
+    
+    {% block extra_js%} 
+    
+    {%endblock%}
+    
+    <section class="student-cities">
+      <form method="post" action="{% url 'accommodations' %}">
+        <h1 style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';">Explore Popular Student Cities</h1>
+        <div class="cities-grid">
+          <div class="city-card">
+            {% csrf_token %}
+            <img src="{% static 't-nagar.webp' %}" alt="t nagar" />
+            <button type="submit" value="t nagar" id="location" name="location" class="pl-btn"><h2>T Nagar</h2></button>
+          </div>
+          <div class="city-card">
+            {% csrf_token %}
+            <img src="{% static 'kelambakkam.jpg' %}" alt="kelambakkam" />
+            <button type="submit" value="kelambakkam" id="location" name="location" class="pl-btn"><h2>Kelambakkam</h2></button>
+          </div>
+          <div class="city-card">
+            {% csrf_token %}
+            <img src="{% static 'mylapore.jpg' %}" alt="mylapore" />
+            <button type="submit" value="mylapore" id="location" name="location" class="pl-btn"><h2>Mylapore</h2></button> 
+          </div>
+          <div class="city-card">
+            {% csrf_token %}
+            <img src="{% static 'saidapet.jpg' %}" alt="saidapet" />
+            <button type="submit" value="saidapet" id="location" name="location" class="pl-btn"><h2>Saidapet</h2></button> 
+          </div>
+          <div class="city-card">
+            {% csrf_token %}
+            <img src="{% static 'ayanavaram.avif' %}" alt="Ayanavaram" />
+            <button type="submit" value="Ayanavaram" id="location" name="location" class="pl-btn"><h2>Ayanavaram</h2></button> 
+          </div>
+          <div class="city-card">
+            {% csrf_token %}
+            <img src="{% static 'ennore.jpg' %}" alt="Ennore" />
+            <button type="submit" value="Ennore" id="location" name="location" class="pl-btn"><h2>Ennore</h2></button> 
+          </div>
+          <div class="city-card">
+            {% csrf_token %}
+            <img src="{% static 'chennai.jpg' %}" alt="Chennai" />
+            <button type="submit" value="Chennai" id="location" name="location" class="pl-btn"><h2>Chennai</h2></button> 
+          </div>
+          <div class="city-card">
+            {% csrf_token %}
+            <img src="{% static 'Gerugambakkam.avif' %}" alt="Gerugambakkam" />
+            <button type="submit" value="Gerugambakkam" id="location" name="location" class="pl-btn"><h2>Gerugambakkam</h2></button> 
+          </div>
+        </div>
+      </form>
+    </section>
+    <img
+      src="{% static 'download.svg' %}"
+      style="height: 150px; width: 600px; display: inline-block"
+      alt=""
+    /><img
+      src="{% static 'download.svg' %}"
+      style="height: 150px; width: 600px"
+      alt=""
+    />
+    <footer class="footer">
+      <div class="footer-links">
+        <div>
+          <a href="#">About us</a>
+          <a href="#">Contact us</a>
+          <a href="#">Reviews</a>
+        </div>
+        <div>
+          <a href="#">Student blog</a>
+          <a href="#">Student guides</a>
+          <a href="#">UK Universities</a>
+        </div>
+        <div>
+          <a href="#">Landlords</a>
+          <a href="#">Advertise</a>
+          <a href="#">Landlord blog</a>
+        </div>
+        <div>
+          <a href="#">Terms and Conditions</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Research</a>
+        </div>
+      </div>
+      <div class="social-media">
+        <a href="#"><img src="{% static 'facebook.png' %}" alt="Facebook" /></a>
+        <a href="#"
+          ><img src="{% static 'instagram.png' %}" alt="Instagram"
+        /></a>
+        <a href="#"><img src="{% static 'twitter.png' %}" alt="Twitter" /></a>
+        <a href="#"><img src="{% static 'youtube.png' %}" alt="YouTube" /></a>
+      </div>
+      <p>&copy; 2024 Accommodation for Students</p>
+    </footer>
+  </body>
+</html>

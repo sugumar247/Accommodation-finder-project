@@ -1,0 +1,42 @@
+{% extends 'myApp/index.html' %}
+{% load static %}
+
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title %}Your bookings{%endblock%}</title>
+    <link rel="stylesheet" href='{% static "my_bookings.css" %}'>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% if bookings %}
+            {% for booking in bookings %}
+                <div class="card">
+                    <img src="{%static 'room.jpeg' %}" alt="Room Image">
+                    <div class="card-content">
+                        <div class="card-title"><a>{{ booking.property_name }}</a></div>
+                        <div class="card-location">{{ booking.location }}</div>
+                        <div class="card-details">
+                            <div><img src="{% static 'location.png' %}" alt="Location">{{booking.city}}</div>
+                            <div><img src="{% static 'receipt.png' %}" alt="">Bills Included</div>
+                            <div><img src="{% static 'studying.png' %}" alt="">Study Area</div>
+                            <div><img src="{% static 'laundry.png' %}" alt="">Laundry Facility</div>
+                            <div class="card-highlight"><img src="{% static 'room.png' %}" alt="">Having {{booking.total_rooms}} Rooms </div>
+                            <div class="card-highlight"><img src="{% static 'thunder.png' %}" alt="">Instant Booking</div>
+                            <div class="card-highlight"> <img src="{% static 'tag.png' %}" alt="">4 Offers</div>
+                        </div>
+                        <div class="card-price"> <span>From</span> &#8377;{{ booking.price }}/week</div>
+                        <div class="card-button">
+                            <p>Booked on {{booking.booking_date}}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+                <h1>No Rooms booked yet</h1>
+        {% endif %}
+    </div>
+{% endblock %}

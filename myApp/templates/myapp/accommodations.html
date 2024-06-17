@@ -1,0 +1,109 @@
+{% extends 'myApp/index.html' %}
+{% load static %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Rooms near {{ city }} {% endblock %}</title>
+    <link rel="stylesheet" href='{% static "accommodation.css" %}'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function fetchSuggestions(inputId, url) {
+                $('#' + inputId).on('input', function() {
+                    let query = $(this).val();
+                    if (query.length > 2) {
+                        $.ajax({
+                            url: url,
+                            data: {
+                                'term': query
+                            },
+                            success: function(data) {
+                                $('#' + inputId + '-suggestions').empty();
+                                data.forEach(function(item) {
+                                    $('#' + inputId + '-suggestions').append('<option value="' + item + '">');
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+
+            fetchSuggestions('amenities', "{% url 'amenities-suggestions' %}");
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <h2 style="text-align: center;">Filter rooms</h2>
+    <form method="get" action="{% url 'filter-accommodations' %}" class="filter-frm">
+        <!-- <div class="form-group">
+            <label for="bhk">BHK:</label>
+            <input type="number" id="bhk" name="bhk" min="1">
+        </div> -->
+        <div class="form-group">
+            <label for="custom_price">Budget:</label>
+            <input type="number" id="custom_price" name="custom_price" placeholder="Enter budget">
+        </div>
+        <!-- <div class="form-group">
+            <label for="balcony">Balcony:</label>
+            <select id="balcony" name="balcony">
+                <option value="">Any</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div> -->
+        <!-- <div class="form-group">
+            <label for="total_rooms">Total Rooms:</label>
+            <input type="number" id="total_rooms" name="total_rooms" min="1">
+        </div> -->
+        <div class="form-group">
+            <label for="amenities">Amenities:</label>
+            <input list="amenities-suggestions" id="amenities" name="amenities">
+            <datalist id="amenities-suggestions"></datalist>
+        </div>
+        <!-- <div class="form-group">
+            <label for="city">City:</label>
+            <input list="city-suggestions" id="city" name="city">
+            <datalist id="city-suggestions"></datalist>
+        </div> -->
+        <!-- <div class="form-group">
+            <label for="property_type">Property Type:</label>
+            <input list="property-type-suggestions" id="property_type" name="property_type">
+            <datalist id="property-type-suggestions"></datalist>
+        </div> -->
+        <button type="submit" class="filter-btn">Filter</button>
+    </form>
+
+    <h2 style="text-align: center;">Popular Properties near "{{ city }}" <br> <br> Results found "{{accommodations_count}}" </h2>
+    <div class="container">
+        {% if accommodations %}
+            {% for accommodation in accommodations %}
+                <div class="card">
+                    <img src="{% static 'room.jpeg' %}" alt="Room Image">
+                    <div class="card-content">
+                        <div class="card-title"><a href="{% url 'accommodation-details' accommodation.aw %}">{{ accommodation.Property_Name }}</a></div>
+                        <div class="card-location">{{ accommodation.Location }}</div>
+                        <div class="card-details">
+                            <div><img src="{% static 'location.png' %}" alt="Location">{{ accommodation.city }}</div>
+                            <div><img src="{% static 'receipt.png' %}" alt="">Bills Included</div>
+                            <div><img src="{% static 'studying.png' %}" alt="">Study Area</div>
+                            <div><img src="{% static 'laundry.png' %}" alt="">Laundry Facility</div>
+                            <div class="card-highlight"><img src="{% static 'room.png' %}" alt="">Having {{ accommodation.Total_Rooms }} Rooms </div>
+                            <div class="card-highlight"><img src="{% static 'thunder.png' %}" alt="">Instant Booking</div>
+                            <div class="card-highlight"><img src="{% static 'tag.png' %}" alt="">4 Offers</div>
+                        </div>
+                        <div class="card-price"><span>From</span> &#8377;{{ accommodation.Price }}/week</div>
+                        <!-- <h6>{{accommodation.distance}}</h6> -->
+                        <div class="card-button">
+                            <a href="{% url 'accommodation-details' accommodation.aw %}">Enquire <img src="{% static 'right-arrow.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1>No Rooms found</h1>
+        {% endif %}
+    </div>
+{% endblock %}

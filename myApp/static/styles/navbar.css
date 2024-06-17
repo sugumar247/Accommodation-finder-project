@@ -1,0 +1,315 @@
+body{
+    margin: 0px;
+}
+
+.header{
+    border-radius: 2px;
+    padding-bottom: 10px;
+    padding-top:0px;
+}
+
+.home{
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 20px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding: 20px;
+    margin-left: 9px;
+    margin-top: 10px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    float: left;
+}
+
+
+
+.right-section{
+    display: inline;
+    float: right;
+    margin-right: 5px;
+    margin-top: 10px;
+}
+
+.signup, .login{
+      align-items: center;
+      appearance: none;
+      margin-right: 10px;
+      background-color: #FCFCFD;
+      border-radius: 4px;
+      border-width: 0;
+      box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+      box-sizing: border-box;
+      color: #36395A;
+      cursor: pointer;
+      display: inline-flex;
+      font-family: "JetBrains Mono",monospace;
+      height: 20px;
+      justify-content: center;
+      line-height: 1;
+      list-style: none;
+      overflow: hidden;
+      padding: 20px;
+      position: relative;
+      text-align: left;
+      text-decoration: none;
+      transition: box-shadow .15s,transform .15s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      will-change: box-shadow,transform;
+      font-size: 18px;
+}
+
+.username{
+      align-items: center;
+      appearance: none;
+      margin-right: 10px;
+      background-color: #ffc9ba;
+      border-radius: 4px;
+      border-width: 0;
+      box-sizing: border-box;
+      color: #442c2e;
+      display: inline-flex;
+      font-family: "JetBrains Mono",monospace;
+      height: 20px;
+      justify-content: center;
+      line-height: 1;
+      list-style: none;
+      overflow: hidden;
+      padding: 20px;
+      position: relative;
+      text-align: left;
+      text-decoration: none;
+      transition: box-shadow .15s,transform .15s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      will-change: box-shadow,transform;
+      font-size: 18px;
+  }
+  
+.signup:focus, .login:focus , .home:focus, .username:focus{
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.signup:hover, .login:hover, .home:hover{
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+    color: #ee4540;
+}
+
+.signup:active, .login:active, .home:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.bottom-search-section{
+    text-align: center;
+    display: flex;
+    margin-top: 120px;
+    margin-left: 40px;
+}
+
+.bottom-search-section .input-c{
+    padding: 16px;
+    padding-left: 40px;
+    padding-right: 180px;
+    font-size: 1rem;
+    display: inline-block;
+    outline: none;
+    border: none;
+    right: 50;
+    font-family: "JetBrains Mono",monospace;
+    position: relative;
+}
+
+.hero-banner{
+    position: relative;
+    width: 100%;
+    height: 17.5rem;
+    background-color: #63656a;
+}
+
+
+.my-bookings {
+    align-items: center;
+    appearance: none;
+    margin-right: 10px;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 20px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding: 20px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 18px;
+}
+
+.my-bookings:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.my-bookings:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+    color: #ee4540;
+}
+
+.my-bookings:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+.student-cities {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+.student-cities h1 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+.pl-btn{
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.pl-btn:hover{
+    text-decoration: underline;
+}
+
+.cities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.city-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.city-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.city-card h2 {
+    margin: 0;
+    padding: 15px;
+    background-color: #f8f8f8;
+    font-size: 1.2em;
+}
+
+.city-card:hover {
+    transform: scale(1.05);
+}
+
+
+.footer {
+    background-color: #1c1b2e;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+    font-family: "Apax", "ApaxSubset", Helvetica, Arial, sans-serif;
+  }
+
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9rem;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+  .footer .social-media a {
+    margin: 0 15px;
+    display: inline-block;
+  }
+
+  .footer .social-media img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer .support {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer .support img {
+    margin-left: 10px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 20px;
+  }
+
+  .footer .footer-links div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer .footer-links a {
+    margin: 5px 0;
+  }

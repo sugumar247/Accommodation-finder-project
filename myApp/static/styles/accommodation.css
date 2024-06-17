@@ -1,0 +1,191 @@
+.container {
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 550px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.card img {
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    flex: 1;
+    position: relative;
+}
+
+.card-details .card-highlight{
+    background-color: rgb(244, 244, 244);
+    border-radius: 5px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.card-title a{
+    color: #111928;
+    text-decoration: none;
+}
+
+.card-title:hover{
+    text-decoration: underline;
+}
+
+.card-location {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.card-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card-details div {
+    display: flex;
+    align-items: center;
+}
+
+.card-details div img {
+    margin-right: 5px;
+    width: 16px; 
+    height: 16px;
+}
+
+.card-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-top: 10px;
+    color: #111928;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    display: inline-block;
+}
+
+.card-button {
+    text-align: right;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.card-button a {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    right: 5%;
+    text-decoration: none;
+    bottom: 10%;
+    transition: box-shadow 0.15s;
+}
+
+.card-button a img{
+    width: 16px; 
+    height: 16px;
+}
+
+.card-price span{
+    font-weight: lighter;
+    font-size:15px;
+    color:#000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.card-button a:hover {
+    background-color: #e03571;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.filter-frm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; 
+    margin-bottom: 20px; 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.form-group input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 30px;
+    border-width: 1px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    background-color: rgb(20, 20, 255);
+    border: none;
+    border-radius: 4px;
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    right: 25%;
+    margin-top: 22px;
+}
+
+.form-group input:focus {
+    outline: 2px solid #3367d6;
+    outline-color: #3367d6;
+    border: none;
+}

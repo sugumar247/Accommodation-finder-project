@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Signup to create account</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href='{% static "register.css" %}'>
+        <style>
+            body{
+                background-image: url('{% static "park.jpg" %}'); 
+                background-size: cover;
+                background-repeat: no-repeat;
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                padding-top: 10px;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <form action="" method="post" class="register-container">
+            {% csrf_token %} 
+            <h3>Signup</h3>
+    
+            <label for="username" class="reg-user-label">Username</label>
+            <input type="text" placeholder="Username" name="username" id="username" class="reg-user-input" required>
+    
+            <label for="email" class="reg-email-label">Email</label>
+            <input type="email" placeholder="Enter Email" name="email" id="email" class="reg-email-input" required>
+    
+            <label for="password1" class="reg-pass-label">New Password</label>
+            <input type="password" placeholder="Enter password" id="password1" name="password1" class="reg-pass-input" required>
+    
+    
+            <label for="password2" class="reg-cpass-label">Confirm Password</label>
+            <input type="password" placeholder="Confirm Password" id="password2" name="password2" class="reg-cpass-input" required>
+            <button type="submit" class="reg-btn">Signup</button>
+            
+            <a href="{% url 'my-login' %}" >i have already account</a>
+        </form>
+    </body>
+
+    {% if error_message %}
+        <script>
+            alert("{{ error_message }}");
+        </script>
+    {% endif %}
+</html>
